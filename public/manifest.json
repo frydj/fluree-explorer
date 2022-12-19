@@ -1,0 +1,48 @@
+{
+  "name": "Fluree Explorer",
+  "version": "0.1.0",
+  "description": "Reading JSON-LD from browser & using fluree to query saved data.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/bookmark.png",
+        "assets/play.png",
+        "assets/delete.png",
+        "assets/save.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/round.png",
+      "24": "assets/round.png",
+      "32": "assets/round.png"
+    },
+    "default_title": "Fluree Explorer",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
