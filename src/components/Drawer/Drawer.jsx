@@ -1,10 +1,11 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import YetiWave from '../assets/yeti-wave.png';
+import YetiWave from '../../assets/yeti-wave.png';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import './Drawer.css';
 
 const Drawer = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const exposeDrawer = () => {
     setOpen(true);

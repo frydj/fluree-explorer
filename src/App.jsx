@@ -1,10 +1,9 @@
-import Drawer from "./components/Drawer";
-
+import Drawer from './components/Drawer/Drawer';
 
 function App() {
   return (
     <div className="App">
-      <Drawer/>
+      <Drawer />
     </div>
   );
 }
