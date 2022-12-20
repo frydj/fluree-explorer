@@ -1,18 +1,20 @@
 import { removeContextFromKeys } from "../utilities/utilities";
 
-export default DefaultEntity = (data) => {
-  let entity = removeContextFromKeys(data?.data);
-  console.log("entity", entity);
-  if (!entity) {
+export default Place = (data) => {
+  console.log("place", data);
+  const place = removeContextFromKeys(data?.data);
+  if (!place) {
     return;
   }
-  let image = null;
-  if (entity.image && entity.image.startsWith("http")) {
-    image = entity.image;
-  }
   let url = null;
-  if (entity.sameAs?.startsWith("http")) {
-    url = entity.sameAs;
+  if (place.url?.startsWith("http")) {
+    url = place.url;
+  } else if (place.sameAs?.startsWith("http")) {
+    url = place.sameAs;
+  }
+  let image = null;
+  if (place.image?.startsWith("http")) {
+    image = place.image;
   }
 
   return (
@@ -24,8 +26,8 @@ export default DefaultEntity = (data) => {
         {image && <img className="mx-auto h-32 flex-shrink-0" src={image} alt="" />}
         <h3 className="mt-6 text-sm font-medium text-gray-900">
           {url 
-            ? <a href={url}>{entity.name || "No name available"}</a>
-            : entity.name || "No name available"
+            ? <a href={url}>{place.name || "No name available"}</a>
+            : place.name
           }
         </h3>
       </div>
