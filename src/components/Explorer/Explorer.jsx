@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import './Explorer.css';
 
 const Explorer = (data) => {
   const [url, setUrl] = useState('https://flur.ee');
