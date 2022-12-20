@@ -2,10 +2,11 @@ import React, { Fragment, useState, useEffect } from 'react';
 import YetiWave from '../../assets/yeti-wave.png';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import Tabs from '../Tabs/Tabs';
 import './Drawer.css';
 
-const Drawer = (props) => {
-  const [open, setOpen] = useState(false);
+const Drawer = () => {
+  const [open, setOpen] = useState(true);
 
   const exposeDrawer = () => {
     setOpen(true);
@@ -64,7 +65,9 @@ const Drawer = (props) => {
                           </div>
                         </div>
                         <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                          { props.children }
+                          <div className="absolute inset-0 px-4 sm:px-6">
+                            <Tabs>{props.children}</Tabs>
+                          </div>
                         </div>
                       </div>
                     </Dialog.Panel>
