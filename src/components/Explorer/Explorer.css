@@ -26,3 +26,22 @@ iframe, object {
   width: 100vw;
   height: calc(100vh - 54px);
 }
+
+#bookmarks-container {
+  display: flex;
+  background-color: rgb(210,220,230);
+}
+
+.bookmark {
+  border: 2px solid gray;
+  background-color: white;
+  color: gray;
+  border-radius: 8px;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 5px;
+  line-height: 10px;
+  margin: 5px 0 5px 10px;
+}

@@ -5,8 +5,8 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 import Tabs from '../Tabs/Tabs';
 import './Drawer.css';
 
-const Drawer = () => {
-  const [open, setOpen] = useState(true);
+const Drawer = (props) => {
+  const [open, setOpen] = useState(false);
 
   const exposeDrawer = () => {
     setOpen(true);
