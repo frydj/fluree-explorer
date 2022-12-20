@@ -1,4 +1,4 @@
-import Explorer from "./components/Explorer";
+import Explorer from './components/Explorer/Explorer';
 import Drawer from './components/Drawer/Drawer';
 
 function App() {
