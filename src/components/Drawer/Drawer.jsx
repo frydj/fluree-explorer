@@ -4,7 +4,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import './Drawer.css';
 
-const Drawer = () => {
+const Drawer = (props) => {
   const [open, setOpen] = useState(false);
 
   const exposeDrawer = () => {
@@ -64,14 +64,7 @@ const Drawer = () => {
                           </div>
                         </div>
                         <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                          {/* Replace with your content */}
-                          <div className="absolute inset-0 px-4 sm:px-6">
-                            <div
-                              className="h-full border-2 border-dashed border-gray-200"
-                              aria-hidden="true"
-                            />
-                          </div>
-                          {/* /End replace */}
+                          { props.children }
                         </div>
                       </div>
                     </Dialog.Panel>
