@@ -5,21 +5,17 @@ import App from './App';
 import Drawer from './Drawer';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>
+// );
 
 const fex_root = ReactDOM.createRoot(
   document.getElementById('fluree-explorer-root')
 );
-fex_root.render(
-  <React.StrictMode>
-    <Drawer />
-  </React.StrictMode>
-);
+fex_root.render(<Drawer />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

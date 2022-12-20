@@ -32,10 +32,106 @@
   from {
     transform: rotate(0deg);
   }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
   to {
     transform: rotate(360deg);
   }
 }
+
+@-webkit-keyframes hideFreddy
+
+/* Safari and Chrome */
+  {
+  from {
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  to {
+    -webkit-transform: translate(50px, 0);
+    -o-transform: translate(50px, 0);
+    transform: translate(50px, 0);
+  }
+}
+
+@keyframes hideFreddy {
+  from {
+    -ms-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  to {
+    -ms-transform: translate(50px, 0);
+    -moz-transform: translate(50px, 0);
+    -webkit-transform: translate(50px, 0);
+    -o-transform: translate(50px, 0);
+    transform: translate(50px, 0);
+  }
+}
+
+@-webkit-keyframes showFreddy
+
+/* Safari and Chrome */
+  {
+  from {
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  to {
+    -webkit-transform: translate(50px, 0);
+    -o-transform: translate(50px, 0);
+    transform: translate(50px, 0);
+  }
+}
+
+@keyframes showFreddy {
+  from {
+    -ms-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  to {
+    -ms-transform: translate(50px, 0);
+    -moz-transform: translate(50px, 0);
+    -webkit-transform: translate(50px, 0);
+    -o-transform: translate(50px, 0);
+    transform: translate(50px, 0);
+  }
+}
+
+.freddy-collapsed {
+  animation-name: hideFreddy;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.freddy-appear {
+  animation-name: showFreddy;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-direction: reverse;
+}
+
 
 #roott {
   position: fixed;
@@ -54,32 +150,32 @@
 #drawer-handle {
   display: flex;
   position: fixed;
-  margin-right: -10px;
+  margin-right: -14px;
   right: 0;
   top: 100px;
   z-index: 100000;
-  /*    background-color: #F1FBFE;*/
   border-radius: 50% 0 0 50%;
   height: 30px;
-  width: 30px;
   justify-content: center;
   align-items: center;
-/*    border: 2px solid #13C6FF;
-  outline: 1px solid #4B56A5;*/
-  opacity: 0.7;
-/*    transition: 0.3s ease-in-out;*/
   cursor: pointer;
+  width: 40px;
   transition: opacity 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 #drawer-handle img {
   height: 40px;
+  width: 700px;
   transform: rotate(-40deg);
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out;
 }
 
-#drawer-handle:hover {
+#drawer-handle img:hover {
   opacity: 1;
-  transform: rotate(-80deg) scaleX(-1);
-  margin-right:-6px;
+  transform: rotate(-40deg) scaleX(-1);
+  margin-right: 5px;
   margin-top: 3px;
 }
+

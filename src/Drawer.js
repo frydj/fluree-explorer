@@ -16,7 +16,10 @@ const Drawer = () => {
 
   return (
     <div id="fex-drawer-container">
-      <div id="drawer-handle">
+      <div
+        id="drawer-handle"
+        className={open ? 'freddy-collapsed' : 'freddy-appear'}
+      >
         <img src={YetiWave} onClick={exposeDrawer} alt="yeti" />
       </div>
 
@@ -42,7 +45,7 @@ const Drawer = () => {
                         <div className="px-4 sm:px-6">
                           <div className="flex items-start justify-between">
                             <Dialog.Title className="text-lg font-medium text-gray-900">
-                              Panel title
+                              Fluree Explorer
                             </Dialog.Title>
                             <div className="ml-3 flex h-7 items-center">
                               <button

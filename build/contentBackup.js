@@ -21,7 +21,6 @@
   let fluree_script = document.createElement('script');
   fluree_script.setAttribute('defer', 'defer');
   fluree_script.setAttribute('src', '/static/js/main.4b2133ec.js');
-  fluree_script.setAttribute('type', 'module');
 
   head.appendChild(fluree_script);
 
