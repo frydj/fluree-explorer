@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import YetiWave from './yeti-wave.png';
+import YetiWave from '../assets/yeti-wave.png';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
