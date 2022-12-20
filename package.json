@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@fluree/fluree-context-utils": "^1.0.3",
+    "@fluree/flureedb": "file:flureedb",
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
     "@testing-library/jest-dom": "^5.16.5",
