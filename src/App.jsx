@@ -1,11 +1,16 @@
+import { FlureeWrapper } from './flureedb/FlureeContext';
 import Explorer from './components/Explorer/Explorer';
 import Drawer from './components/Drawer/Drawer';
 
 function App() {
   return (
     <div className="App">
-      <Explorer />
-      <Drawer />
+      <FlureeWrapper>
+        <Explorer />
+        <Drawer>
+          <div>Child</div>
+        </Drawer>
+      </FlureeWrapper>
     </div>
   );
 }
