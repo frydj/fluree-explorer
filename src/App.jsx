@@ -7,9 +7,7 @@ function App() {
     <div className="App">
       <FlureeWrapper>
         <Explorer />
-        <Drawer>
-          <div>Child</div>
-        </Drawer>
+        <Drawer />
       </FlureeWrapper>
     </div>
   );

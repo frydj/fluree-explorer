@@ -30,6 +30,7 @@ iframe, object {
 #bookmarks-container {
   display: flex;
   background-color: rgb(210,220,230);
+  border-bottom: 1px solid lightgray;
 }
 
 .bookmark {

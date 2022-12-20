@@ -3,18 +3,20 @@ import YetiWave from '../../assets/yeti-wave.png';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import Tabs from '../Tabs/Tabs';
+import Editor from '@monaco-editor/react';
+
 import './Drawer.css';
 
-const Drawer = (props) => {
+const Drawer = () => {
   const [open, setOpen] = useState(false);
+
+  const doNothing = () => {
+    // nothing
+  };
 
   const exposeDrawer = () => {
     setOpen(true);
   };
-
-  useEffect(() => {
-    console.log(open);
-  }, [open]);
 
   return (
     <div id="fex-drawer-container">
@@ -66,7 +68,20 @@ const Drawer = (props) => {
                         </div>
                         <div className="relative mt-6 flex-1 px-4 sm:px-6">
                           <div className="absolute inset-0 px-4 sm:px-6">
-                            <Tabs>{props.children}</Tabs>
+                            <Tabs>
+                              <div className="tab-content" id="detected-json">
+                                icons go here
+                                <Editor
+                                  id="input-editor"
+                                  options={{ automaticLayout: true }}
+                                  onChange={doNothing}
+                                  language="json"
+                                />
+                              </div>
+                              <div className="tab-content" id="saved-json">
+                                child 2
+                              </div>
+                            </Tabs>
                           </div>
                         </div>
                       </div>

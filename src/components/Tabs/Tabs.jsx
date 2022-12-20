@@ -1,8 +1,9 @@
 import React, { Children, useState } from 'react';
+import './Tabs.css';
 
 const initialTabs = [
-  { name: 'Detected JSON', current: true },
-  { name: 'View Saved', current: false },
+  { name: 'Detected JSON', current: true, index: 0 },
+  { name: 'View Saved', current: false, index: 1 },
 ];
 
 function classNames(...classes) {
@@ -21,6 +22,7 @@ const Tabs = ({ children }) => {
     for (const i in arr) {
       if (arr[i] === tab) {
         arr[i].current = true;
+        setIndex(arr[i].index);
       } else {
         arr[i].current = false;
       }

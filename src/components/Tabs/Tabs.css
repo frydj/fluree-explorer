@@ -1,0 +1,9 @@
+.tab-content {
+  outline: 2px solid rgba(210,210,230,1);
+  border-radius: 8px;
+  margin: 13px 0;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 165px);
+}
