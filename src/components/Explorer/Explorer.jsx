@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
 import './Explorer.css';
 
-const Explorer = (data) => {
-  const [url, setUrl] = useState('https://flur.ee');
+const Explorer = (props) => {
+  const [url, setUrl] = useState('http://10.11.254.36:8003/');
+
   const searchBar = useRef();
 
   const bookmarks = [

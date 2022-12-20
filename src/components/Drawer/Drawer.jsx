@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import YetiWave from '../../assets/yeti-wave.png';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
@@ -7,8 +7,16 @@ import Editor from '@monaco-editor/react';
 
 import './Drawer.css';
 
-const Drawer = () => {
+const Drawer = ({ url }) => {
   const [open, setOpen] = useState(false);
+  const [jsonData, setJsonData] = useState("{}");
+
+  const detectJson = () => {
+    const jsonLdElements = document.querySelectorAll('[type="application/ld+json"]');
+    if (jsonLdElements.length > 0) {
+      setJsonData(Array.from(jsonLdElements).map(scriptEl => JSON.parse(scriptEl.innerHtml)));
+    }
+  }
 
   const doNothing = () => {
     // nothing
@@ -70,9 +78,10 @@ const Drawer = () => {
                           <div className="absolute inset-0 px-4 sm:px-6">
                             <Tabs>
                               <div className="tab-content" id="detected-json">
-                                icons go here
+                                <button onClick={detectJson}>Detect</button>
                                 <Editor
                                   id="input-editor"
+                                  value={jsonData}
                                   options={{ automaticLayout: true }}
                                   onChange={doNothing}
                                   language="json"
