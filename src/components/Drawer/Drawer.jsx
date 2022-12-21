@@ -92,7 +92,12 @@ const Drawer = ({ url }) => {
             if (json["@context"].startsWith("https")) {
               json["@context"] = json["@context"].replace("https", "http");
             }
-            // json["feType"] = "entity";
+            json["hackathon"] = true;
+            if (Object.hasOwn(json, "@graph")) {
+              for (var idx in json["@graph"]) {
+                json["@graph"][idx] = { ...json["@graph"][idx], "hackathon": true };
+              }
+            }
             return json;
           }),
           null,
