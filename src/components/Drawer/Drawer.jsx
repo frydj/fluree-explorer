@@ -10,6 +10,7 @@ import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css'; // optional for styling
 import Sandbox from '../Sandbox/Sandbox';
 import { useFlureeContext } from '../../flureedb/FlureeContext';
+import DisplayResults from '../EntityViewer/DisplayResults'
 
 import './Drawer.css';
 
@@ -65,16 +66,20 @@ const Drawer = ({ url }) => {
     const jsonLdElements = document
       .querySelector('iframe')
       .contentDocument.querySelectorAll('[type="application/ld+json"]');
-    console.log(jsonLdElements);
     if (jsonLdElements.length > 0) {
       setJsonData(
         JSON.stringify(
-          Array.from(jsonLdElements).map((scriptEl) =>
-            JSON.parse(scriptEl.innerHTML)
-          ),
+          Array.from(jsonLdElements).map((scriptEl) => {
+            let json = JSON.parse(scriptEl.innerHTML);
+            if (json["@context"].startsWith("https")) {
+              json["@context"] = json["@context"].replace("https", "http");
+            }
+            // json["feType"] = "entity";
+            return json;
+          }),
           null,
           1
-        )
+          )
       );
     } else {
       setJsonData('// no json detected');
@@ -197,7 +202,7 @@ const Drawer = ({ url }) => {
                                 />
                               </div>
                               <div className="tab-content" id="saved-json">
-                                [ todo: view saved ]
+                                <DisplayResults data={results} />
                               </div>
                               <div className="tab-content" id="saved-json">
                                 <Sandbox />

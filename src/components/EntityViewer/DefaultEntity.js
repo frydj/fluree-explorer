@@ -1,6 +1,6 @@
-import { removeContextFromKeys } from "../utilities/utilities";
+import { removeContextFromKeys } from "../../utilities/utilities";
 
-export default DefaultEntity = (data) => {
+const DefaultEntity = (data) => {
   let entity = removeContextFromKeys(data?.data);
   console.log("entity", entity);
   if (!entity) {
@@ -32,3 +32,5 @@ export default DefaultEntity = (data) => {
     </li>
   )
 }
+
+export default DefaultEntity;

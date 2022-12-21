@@ -1,6 +1,6 @@
-import { removeContextFromKeys } from "../utilities/utilities";
+import { removeContextFromKeys } from "../../utilities/utilities";
 
-export default Place = (data) => {
+const Place = (data) => {
   console.log("place", data);
   const place = removeContextFromKeys(data?.data);
   if (!place) {
@@ -34,3 +34,5 @@ export default Place = (data) => {
     </li>
   )
 }
+
+export default Place;

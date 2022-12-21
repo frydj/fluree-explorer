@@ -1,4 +1,4 @@
-import { removeContextFromKeys } from "../utilities/utilities";
+import { removeContextFromKeys } from "../../utilities/utilities";
 
 const Performers = (data) => {
   console.log("performers", data);
@@ -14,7 +14,7 @@ const Performers = (data) => {
   );
 }
 
-export default MusicEvent = (data) => {
+const MusicEvent = (data) => {
   const event = removeContextFromKeys(data?.data);
   if (!event) {
     return;
@@ -57,3 +57,5 @@ export default MusicEvent = (data) => {
     </li>
   )
 }
+
+export default MusicEvent;

@@ -1,6 +1,6 @@
-import { removeContextFromKeys } from "../utilities/utilities";
+import { removeContextFromKeys } from "../../utilities/utilities";
 
-export default MusicGroup = (data) => {
+const MusicGroup = (data) => {
   let group = removeContextFromKeys(data?.data);
   if (!group) {
     return;
@@ -31,3 +31,5 @@ export default MusicGroup = (data) => {
     </li>
   )
 }
+
+export default MusicGroup;

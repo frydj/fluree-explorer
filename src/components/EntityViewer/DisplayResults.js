@@ -16,11 +16,14 @@ const getDisplayComponent = (type, data) => {
   };
 }
 
-export default DisplayResults = (results) => {
-  if (!results) { return; }
+const DisplayResults = (results) => {
+  console.log("why are you like this", results)
+  if (!results || !results.data) { return; }
   results = results.json;
   const entities = results.map(r => {
     return getDisplayComponent(r["rdf:type"][0], r)
   })
   return entities;
 }
+
+export default DisplayResults;
