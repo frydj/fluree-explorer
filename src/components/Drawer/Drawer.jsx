@@ -224,18 +224,20 @@ const Drawer = ({ url }) => {
                                   language="json"
                                 />
                               </div>
-                              <div className="tab-header">
-                                <span>View Added Data:</span>
-                                <Button
-                                  id="capture-detected"
-                                  tooltip="Commit Data [F9]"
-                                  onClick={handleLoad}
-                                >
-                                  Load
-                                </Button>
-                              </div>
-                              <div className="tab-content" id="saved-json">
-                                <DisplayResults data={displayData} />
+                              <div className="tab-content" id="view-data">
+                                <div className="tab-header">
+                                  <span>View Added Data:</span>
+                                  <Button
+                                    id="capture-detected"
+                                    tooltip="Commit Data [F9]"
+                                    onClick={handleLoad}
+                                  >
+                                    Load
+                                  </Button>
+                                </div>
+                                <div className="tab-content" id="saved-json">
+                                  <DisplayResults data={displayData} />
+                                </div>
                               </div>
                               <div className="tab-content" id="saved-json">
                                 <Sandbox />
