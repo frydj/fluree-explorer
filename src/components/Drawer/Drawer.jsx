@@ -60,18 +60,18 @@ const Drawer = ({ url }) => {
   };
 
   const handleLoad = async () => {
-    const typeQuery = {
-      where: [["?i", "hackathon", "true"]],
-      select: { "?i": ["*"] }
+    const queryJson = {
+      where: [["?i", "schema:hackathon", "true"]],
+      select: { "?i": ["*"] },
+      depth: 3
     };
 
-    const r = await query(committedDb, typeQuery);
+    const r = await query(committedDb, queryJson);
     if (r?.name === "Error") {
       console.log("Error: " + r.message);
       // setResults("Error: " + r.message);
     }
     else {
-      console.log("displayData");
       setDisplayData(r);
     }
   }

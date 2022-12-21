@@ -16,10 +16,12 @@ const getDisplayComponent = (type, data) => {
   };
 }
 
+console.log("are you loading?")
+
 const DisplayResults = (results) => {
-  console.log("why are you like this", results)
+  console.log("why are you like this", results);
   if (!results || !results.data) { return; }
-  results = results.json;
+  results = results.data;
   const entities = results.map(r => {
     return getDisplayComponent(r["rdf:type"][0], r)
   })
