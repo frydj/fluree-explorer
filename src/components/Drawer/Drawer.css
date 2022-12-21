@@ -151,3 +151,7 @@
   position: relative;
   overflow: visible !important;
 }
+
+.fluree-drawer {
+  box-shadow: -10px 0 40px 5px rgba(80,80,80,0.5);
+}

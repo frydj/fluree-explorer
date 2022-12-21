@@ -10,6 +10,7 @@ import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css'; // optional for styling
 import Sandbox from '../Sandbox/Sandbox';
 import { useFlureeContext } from '../../flureedb/FlureeContext';
+import defaultEntity from '../EntityViewer/DefaultEntity';
 
 import './Drawer.css';
 
