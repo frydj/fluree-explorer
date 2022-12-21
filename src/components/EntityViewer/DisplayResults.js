@@ -16,8 +16,6 @@ const getDisplayComponent = (type, data) => {
   };
 }
 
-console.log("are you loading?")
-
 const DisplayResults = (results) => {
   console.log("why are you like this", results);
   if (!results || !results.data) { return; }

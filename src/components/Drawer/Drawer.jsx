@@ -14,6 +14,19 @@ import DisplayResults from '../EntityViewer/DisplayResults'
 
 import './Drawer.css';
 
+const fixJson = (object) => {
+  if (!object) return;
+  Object.keys(object).map(key => {
+    if (typeof object[key] === "object" && object[key] !== null) {
+      fixJson(object[key]);
+    }
+    if (object["@type"]) {
+      object.hackathon = true;
+    }
+  })
+  return object;
+}
+
 const circularReplacer = () => {
   const seen = new WeakSet();
 
@@ -92,12 +105,12 @@ const Drawer = ({ url }) => {
             if (json["@context"].startsWith("https")) {
               json["@context"] = json["@context"].replace("https", "http");
             }
-            json["hackathon"] = true;
             if (Object.hasOwn(json, "@graph")) {
               for (var idx in json["@graph"]) {
                 json["@graph"][idx] = { ...json["@graph"][idx], "hackathon": true };
               }
             }
+            fixJson(json);
             return json;
           }),
           null,
