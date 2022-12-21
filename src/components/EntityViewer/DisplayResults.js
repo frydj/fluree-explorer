@@ -17,7 +17,6 @@ const getDisplayComponent = (type, data) => {
 }
 
 const DisplayResults = (results) => {
-  console.log("why are you like this", results);
   if (!results || !results.data) { return; }
   results = results.data;
   const entities = results.map(r => {
