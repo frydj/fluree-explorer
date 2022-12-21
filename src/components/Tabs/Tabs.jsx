@@ -1,9 +1,13 @@
-import React, { Children, useState } from 'react';
+import React, { Children, useState, useEffect } from 'react';
 import './Tabs.css';
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css'; // optional for styling
+import { magnifyIcon, historyIcon, puzzleIcon } from '../../assets/icons';
 
 const initialTabs = [
-  { name: 'Detected JSON', current: true, index: 0 },
-  { name: 'View Saved', current: false, index: 1 },
+  { name: magnifyIcon, current: true, index: 0 },
+  { name: historyIcon, current: false, index: 1 },
+  { name: puzzleIcon, current: false, index: 2 },
 ];
 
 function classNames(...classes) {
@@ -30,6 +34,26 @@ const Tabs = ({ children }) => {
     setTabs(arr);
   };
 
+  useEffect(() => {
+    tippy('#tab-0', {
+      content: 'Detect JSON',
+      delay: [500, null],
+      offset: [0, -5],
+    });
+
+    tippy('#tab-1', {
+      content: 'View Saved',
+      delay: [500, null],
+      offset: [0, -5],
+    });
+
+    tippy('#tab-2', {
+      content: 'Transact/Query',
+      delay: [500, null],
+      offset: [0, -5],
+    });
+  }, []);
+
   return (
     <div>
       <div className="sm:hidden">
@@ -44,7 +68,7 @@ const Tabs = ({ children }) => {
           defaultValue={tabs.find((tab) => tab.current).name}
         >
           {tabs.map((tab) => (
-            <option key={tab.name}>{tab.name}</option>
+            <option key={tab.index}>{tab.index}</option>
           ))}
         </select>
       </div>
@@ -55,7 +79,8 @@ const Tabs = ({ children }) => {
         >
           {tabs.map((tab, tabIdx) => (
             <a
-              key={tab.name}
+              id={`tab-${tab.index}`}
+              key={tabIdx}
               onClick={() => changeTabs(tab)}
               className={classNames(
                 tab.current
@@ -67,7 +92,7 @@ const Tabs = ({ children }) => {
               )}
               aria-current={tab.current ? 'page' : undefined}
             >
-              <span>{tab.name}</span>
+              <span className="flex justify-center">{tab.name}</span>
               <span
                 aria-hidden="true"
                 className={classNames(

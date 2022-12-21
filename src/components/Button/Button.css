@@ -1,0 +1,8 @@
+.fluree-button {
+  background-color: #01A0D1;
+  transition: 0.2s ease-in-out;
+}
+
+.fluree-button:hover {
+  background-color: #13C6FF;
+}

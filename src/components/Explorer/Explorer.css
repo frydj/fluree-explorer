@@ -24,7 +24,7 @@
 
 iframe, object {
   width: 100vw;
-  height: calc(100vh - 54px);
+  height: calc(100vh - 87px);
 }
 
 #bookmarks-container {
@@ -45,4 +45,5 @@ iframe, object {
   padding: 3px 5px;
   line-height: 10px;
   margin: 5px 0 5px 10px;
+  cursor: pointer;
 }

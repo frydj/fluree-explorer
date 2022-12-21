@@ -81,12 +81,16 @@
   animation-direction: reverse;
 }
 
+#drawer-container {
+  position: relative;
+}
+
 #drawer-handle {
   display: flex;
   position: fixed;
   margin-right: -14px;
   right: 0;
-  top: 100px;
+  top: 112px;
   z-index: 100000;
   border-radius: 50% 0 0 50%;
   height: 30px;
@@ -113,3 +117,37 @@
   margin-top: 3px;
 }
 
+#drawer-expand {
+  position: absolute;
+  z-index: 100;
+  background-color: #01A0D1;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  top: calc(50% - 17px);
+  left: -12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.4;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#drawer-expand:hover {
+  opacity: 0.8;
+}
+
+#drawer-expand svg {
+  height: 18px;
+  color: snow;
+}
+
+.drawer-expanded {
+  transform: rotate(180deg);
+}
+
+.expand-contain {
+  position: relative;
+  overflow: visible !important;
+}
