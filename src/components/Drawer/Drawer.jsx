@@ -34,6 +34,7 @@ const Drawer = ({ url }) => {
   const [jsonData, setJsonData] = useState('{}');
   const [value, setValue] = useState('asdf');
   const [results, setResults] = useState('asdf');
+  const [displayData, setDisplayData] = useState();
   const { conn, ledger, stagedDb, committedDb, stage, commit, query } =
     useFlureeContext();
 
@@ -57,6 +58,23 @@ const Drawer = ({ url }) => {
       }
     }
   };
+
+  const handleLoad = async () => {
+    const typeQuery = {
+      where: [["?i", "hackathon", "true"]],
+      select: { "?i": ["*"] }
+    };
+
+    const r = await query(committedDb, typeQuery);
+    if (r?.name === "Error") {
+      console.log("Error: " + r.message);
+      // setResults("Error: " + r.message);
+    }
+    else {
+      console.log("displayData");
+      setDisplayData(r);
+    }
+  }
 
   const updateValue = (val) => {
     setValue(val);
@@ -201,8 +219,18 @@ const Drawer = ({ url }) => {
                                   language="json"
                                 />
                               </div>
+                              <div className="tab-header">
+                                <span>View Added Data:</span>
+                                <Button
+                                  id="capture-detected"
+                                  tooltip="Commit Data [F9]"
+                                  onClick={handleLoad}
+                                >
+                                  Load
+                                </Button>
+                              </div>
                               <div className="tab-content" id="saved-json">
-                                <DisplayResults data={results} />
+                                <DisplayResults data={displayData} />
                               </div>
                               <div className="tab-content" id="saved-json">
                                 <Sandbox />
