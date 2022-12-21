@@ -77,21 +77,6 @@ const Explorer = (props) => {
     }
   };
 
-  useEffect(() => {
-    // console.log('url changed');
-    setTimeout(() => {
-      let detected = document
-        .querySelector('iframe')
-        .contentDocument.querySelector('[type="application/ld+json"]');
-      try {
-        detected = JSON.parse(detected.innerHTML);
-      } catch (err) {
-        console.warn(err);
-      }
-      console.log(detected);
-    }, 500);
-  }, [url]);
-
   return (
     <div id="explorer-container">
       <div id="search-bar-container">
@@ -101,7 +86,7 @@ const Explorer = (props) => {
           ref={searchBar}
           id="search-bar"
           autoFocus
-          defaultValue={url}
+          defaultValue={'https://sugarspunrun.com/best-cheesecake-recipe/'}
         />
       </div>
       <div id="bookmarks-container">
@@ -111,7 +96,11 @@ const Explorer = (props) => {
           </div>
         ))}
       </div>
-      <iframe src={url} title="fluree-explorer-window"></iframe>
+      <iframe
+        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+        src={url}
+        title="fluree-explorer-window"
+      ></iframe>
     </div>
   );
 };
